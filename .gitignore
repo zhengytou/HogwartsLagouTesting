@@ -1,3 +1,5 @@
 /venv/
 /Config/
 /.idea/
+/allure-report
+/allure-results
