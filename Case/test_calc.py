@@ -21,4 +21,5 @@ class TestCalc(object):
 
     @pytest.mark.parametrize("a,b, result", div_list)
     def test_div(self, a, b, result):
-        assert calc.div(a, b) == result
+        with calc.div(a,b) as excinfo:
+            assert calc.div(a, b) == result
