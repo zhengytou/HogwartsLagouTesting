@@ -24,7 +24,7 @@ class BasePage:
         else:
             self.driver = driver
         self.driver.maximize_window()
-        self.driver.implicitly_wait(3)
+        self.driver.implicitly_wait(2)
 
     def find(self, by, locator):
         return self.driver.find_element(by, locator)
