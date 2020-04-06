@@ -18,5 +18,5 @@ class TestAddressBook:
     @pytest.mark.parametrize('name,account,phone', data)
     def test_click_add_member(self, name, account, phone):
         self.index.goto_add_member().add_member(name, account, phone)
-        assert "测试1" in AddMember(self.index.driver).get_name()
-        assert '13112341231' in AddMember(self.index.driver).get_mobile()
+        assert name in AddMember(self.index.driver).get_name()
+        assert phone in AddMember(self.index.driver).get_mobile()
