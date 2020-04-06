@@ -1,12 +1,20 @@
+import pytest
+
 from pageobject.page.address_book import AddressBook
+from pageobject.page.index import IndexPage
+
+data = [()]
 
 
 class TestAddressBook:
-    def setup(self):
-        self.address_book = AddressBook()
+    @classmethod
+    def setup_class(cls):
+        cls.index = IndexPage()
 
-    def teardown(self):
-        self.address_book.driver.quit()
+    @classmethod
+    def teardown_class(cls):
+        cls.index.driver.quit()
 
-    def test_click_add_member(self):
-        self.address_book.goto_add_member()
+    @pytest.mark.parametrize('name,account,phone', data)
+    def test_click_add_member(self, name, account, phone):
+        self.index.goto_add_member().add_member(name, account, phone)
